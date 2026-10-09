@@ -145,7 +145,15 @@
       end: text(trip, 'arrivalTime'),
       places: places,
       counts: counts,
+      expiresAt: text(invite, 'endTime'),
     };
+  }
+
+  /** Whether the invite's link has passed its end time. */
+  function hasExpired(invite, now) {
+    if (!invite.expiresAt) return false;
+    var end = new Date(invite.expiresAt);
+    return !isNaN(end) && end < (now || new Date());
   }
 
   /** "sam.solidcommunity.au" from a WebID. */
@@ -323,7 +331,15 @@
         if (!response.ok) throw new Error('HTTP ' + response.status);
         return response.json();
       })
-      .then(function (json) { render(parseInvite(json), previewUrl); })
+      .then(function (json) {
+        var invite = parseInvite(json);
+        if (hasExpired(invite)) {
+          showMessage('This invite has ended',
+            'Ask ' + organiserLabel(invite) + ' for a new link.');
+          return;
+        }
+        render(invite, previewUrl);
+      })
       .catch(function (error) {
         if (error && error.gone) {
           showMessage('This invite has ended',
@@ -339,6 +355,7 @@
   var api = {
     previewUrlFrom: previewUrlFrom,
     parseInvite: parseInvite,
+    hasExpired: hasExpired,
     shortWebId: shortWebId,
     formatDates: formatDates,
     coverFor: coverFor,
