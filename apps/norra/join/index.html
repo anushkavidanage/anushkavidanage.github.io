@@ -1,0 +1,145 @@
+<!doctype html>
+<!--
+  Norra's join page. Source: norra/site/join/ - publish by copying this
+  folder to apps/norra/join/ on the GitHub Pages site (see site/README.md).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <title>Join a trip · Norra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAF9;
+      --card: #FFFFFF;
+      --text: #17202A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --chip: #F1F5F4;
+      --primary: #0F766E;
+      --on-primary: #FFFFFF;
+      --primary-soft: #CCFBF1;
+      --on-primary-soft: #134E4A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0E1513;
+        --card: #151D1B;
+        --text: #E6EDEB;
+        --muted: #94A3B8;
+        --border: #26332F;
+        --chip: #1D2826;
+        --primary: #2DD4BF;
+        --on-primary: #0E1513;
+        --primary-soft: #134E4A;
+        --on-primary-soft: #CCFBF1;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0E1513;
+      --card: #151D1B;
+      --text: #E6EDEB;
+      --muted: #94A3B8;
+      --border: #26332F;
+      --chip: #1D2826;
+      --primary: #2DD4BF;
+      --on-primary: #0E1513;
+      --primary-soft: #134E4A;
+      --on-primary-soft: #CCFBF1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.5 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    header.site {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 20px 16px 8px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    header.site .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #0F766E, #F97360);
+    }
+    main { max-width: 560px; margin: 0 auto; padding: 8px 16px 40px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .cover { color: #fff; padding: 56px 20px 20px; }
+    .cover h1 { margin: 2px 0; font-size: 26px; line-height: 1.2; }
+    .eyebrow { margin: 0; opacity: 0.8; font-size: 13px; }
+    .dates { margin: 0; }
+    .body { padding: 16px 20px 20px; }
+    ul.places, ul.counts { list-style: none; margin: 0 0 14px; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 8px; }
+    ul.places li { background: var(--chip); border-radius: 999px;
+      padding: 4px 12px; font-size: 13px; }
+    ul.places li::before { content: '\1F4CD  '; }
+    ul.counts { gap: 6px 16px; }
+    ul.counts li { font-size: 13px; font-weight: 600; }
+    ul.counts .icon { margin-right: 4px; }
+    .muted { color: var(--muted); font-size: 13px; margin: 0 0 16px; }
+    button {
+      font: inherit;
+      font-weight: 600;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+    }
+    button.primary {
+      width: 100%;
+      padding: 12px 20px;
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    button.secondary {
+      padding: 4px 12px;
+      margin-top: 6px;
+      background: var(--primary-soft);
+      color: var(--on-primary-soft);
+    }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+    .steps, .message { padding: 4px 20px 16px; }
+    .steps h2 { font-size: 17px; }
+    .steps ol { padding-left: 20px; margin: 0; }
+    .steps li { margin-bottom: 12px; }
+    .copied { margin-left: 8px; color: var(--muted); font-size: 13px; }
+    a { color: var(--primary); }
+    .message h1 { font-size: 20px; }
+    footer { max-width: 560px; margin: 0 auto; padding: 0 16px 32px;
+      color: var(--muted); font-size: 12px; }
+    .loading { color: var(--muted); padding: 24px 4px; }
+  </style>
+</head>
+<body>
+  <header class="site"><span class="mark" aria-hidden="true"></span>Norra</header>
+  <main id="content">
+    <p class="loading">Loading the invite…</p>
+  </main>
+  <footer>
+    Norra is a trip planner with no subscription. Your trips stay in storage
+    you own (a <a href="https://solidproject.org" target="_blank" rel="noopener">Solid Pod</a>),
+    not on our servers. This page reads the invite directly from the
+    organiser's Pod and sends nothing anywhere else.
+  </footer>
+  <script src="join.js"></script>
+</body>
+</html>
