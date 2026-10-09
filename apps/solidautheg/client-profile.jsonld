@@ -1,6 +1,6 @@
 {
   "@context": "https://www.w3.org/ns/solid/oidc-context.jsonld",
-  "client_id": "https://anushkavidanage.github.io/apps/papertrail/client-profile.jsonld",
+  "client_id": "https://anushkavidanage.github.io/apps/solidautheg/client-profile.jsonld",
   "client_name": "PaperTrail",
   "application_type": "native",
   "redirect_uris": [
