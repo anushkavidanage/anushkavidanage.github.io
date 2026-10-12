@@ -12,7 +12,7 @@
   'use strict';
 
   /** Where Norra can be downloaded. */
-  var DOWNLOAD_URL = 'https://solidcommunity.au/installers/';
+  var DOWNLOAD_URL = 'https://github.com/anushkavidanage/norra/releases/latest';
 
   /**
    * The hosted Norra web app, once there is one (e.g.
@@ -27,7 +27,11 @@
     stay: ['Stay', 'Stays', '🏨'],
     place: ['Place', 'Places', '📍'],
     car: ['Car rental', 'Car rentals', '🚗'],
+    parking: ['Parking', 'Parking', '🅿'],
     food: ['Restaurant', 'Restaurants', '🍽'],
+    eventBooking: ['Event', 'Events', '🎭'],
+    // "event" is activities: the id predates events (see the app's
+    // previewIdOf).
     event: ['Activity', 'Activities', '🎟'],
     note: ['Note', 'Notes', '🗒'],
   };
